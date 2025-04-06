@@ -33,9 +33,16 @@ export default {
                 localStorage.setItem("user-info",JSON.stringify(result.data[0]));
                 this.$router.push({name: "Home"});
             }
+        },
+    },
+    //This is checking if user is already sign in then cannot direct to login page
+    mounted() {
+        let user=  localStorage.getItem('user-info');
+        if(user){
+            this.$router.push({name:'Home'})
         }
     }
-}
+};
 </script>
 
 <style scoped>
